@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+
+<body>
+
+
+
+
+
+
+  <div class="main">
+    <noscript>
+      <p class="error">
+        Please enable JavaScript to view this demo.
+      </p>
+    </noscript>
+    <a href="#" class="btn">Get my location!</a>
+    <p>
+      Longitude: <span id="longitude"></span>
+      <br>
+      Latitude: <span id="latitude"></span>
+    </p>
+    <p class="footertext">
+      A pen by <a href="" class="profile-link">anilperson</a>
+    </p>
+  </div>
+
+  <script>
+    var btn = $('div.main a.btn'),
+      longitude = $('#longitude'),
+      latitude = $('#latitude');
+    function savePosition(position) {
+      var long = position.coords.longitude,
+        lat = position.coords.latitude
+      longitude.text(long);
+      latitude.text(lat);
+    }
+    function positionError() {
+      $('div.main').prepend('<p class="error"><strong>Sorry!</strong> There was an error getting your location.</p>');
+    }
+
+    btn.click(function (elem) {
+      elem.preventDefault();
+      if (navigator.geolocation) {
+        // Can use geolocation, proceed with getting the location
+        navigator.geolocation.getCurrentPosition(savePosition, positionError);
+      } else {
+        // Can't use geolocation, we should tell the user
+        $('div.main').prepend('<p class="error">Your browser doesn\'t support geolocation. Try upgrading to a newer browser like <a href="/" target="_blank">Google Chrome</a></p>');
+      }
+    });
+  </script>
+  <script>
+    var x = document.getElementById("demo");
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position) {
+      x.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phone Number Validation</title>
+</head>
+<body>
+  <form>
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" name="phone" required>
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    // Function to validate the phone number
+    function validatePhoneNumber() {
+      const phoneNumberInput = document.getElementById('phone');
+      const phoneNumberPattern = /^\d{10}$/; // 10 digits only
+
+      if (!phoneNumberPattern.test(phoneNumberInput.value)) {
+        alert('Please enter a 10-digit phone number.');
+        return false;
+      }
+      return true;
+    }
+
+    // Attach the validation function to the form's submit event
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function (event) {
+      if (!validatePhoneNumber()) {
+        event.preventDefault(); // Prevent form submission if validation fails
+      }
+    });
+  </script>
+</body>
+</html>

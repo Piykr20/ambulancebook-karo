@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Import bootstrap cdn -->
+	<link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+		integrity=
+"sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+		crossorigin="anonymous">
+
+	<!-- Import jquery cdn -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity=
+"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous">
+	</script>
+	
+	<script src=
+"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+		integrity=
+"sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+		crossorigin="anonymous">
+	</script>
+</head>
+
+<body>
+	<div class="container mt-2">
+
+		<!-- Input field to accept user input -->
+		Name: <input type="text" name="name"
+			id="name"><br><br>
+
+		Marks: <input type="text" name="marks"
+			id="marks"><br><br>
+
+		
+		<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" id="submit">Submit</button>
+
+        <div class="row">
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item cust-name">An item</li>
+                      <li class="list-group-item cust-number">A second item</li>
+                      <li class="list-group-item cust-add">A third item</li>
+                    </ul>
+                    <div class="card-body">
+                    <button type="button" class="btn btn-primary btn-sm cust-btn" data-toggle="modal" data-target="#exampleModal" id="submit1">Submit</button> 
+                    </div>
+                  </div>
+            </div>
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item cust-name">An item</li>
+                      <li class="list-group-item cust-number">A second item</li>
+                      <li class="list-group-item cust-add">A third item</li>
+                    </ul>
+                    <div class="card-body">
+                    <button type="button" class="btn btn-primary btn-sm cust-btn" data-toggle="modal" data-target="#exampleModal" id="submit2">Submit</button> 
+                    </div>
+                  </div>
+            </div>
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item cust-name">An item</li>
+                      <li class="list-group-item cust-number">A second item</li>
+                      <li class="list-group-item cust-add">A third item</li>
+                    </ul>
+                    <div class="card-body">
+                    <button type="button" class="btn btn-primary btn-sm cust-btn" data-toggle="modal" data-target="#exampleModal" id="submit3">Submit</button> 
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+
+          
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true">
+			
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"
+							id="exampleModalLabel">
+							Confirmation
+						</h5>
+						
+						<button type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">
+								×
+							</span>
+						</button>
+					</div>
+
+					<div class="modal-body">
+
+						<!-- Data passed is displayed
+							in this part of the
+							modal body -->
+						<h6 id="modal_body"></h6>
+						<button type="button"
+							class="btn btn-success btn-sm"
+							data-toggle="modal"
+							data-target="#exampleModal"
+							id="submit">
+							Submit
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+        
+		$(".cust-btn").click(function () {
+			var name = $(".cust-name").text();
+            //var name1 = name[0];
+			var num = $(".cust-number").text();
+            var add = $(".cust-add").text();
+			var str = "You Have Booked "
+				+ "<br>" + "Name of Driver: " + name
+				+ "<br>" + "Number of Driver: " + num
+                + "<br>" + "ETA: " + add;
+			$("#modal_body").html(str);
+		});
+	</script>
+</body>
+
+</html>
